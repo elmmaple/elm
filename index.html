@@ -150,7 +150,7 @@ function Diffcard(cardname){
 	//XMLHttpRequest物件專門和伺服器做連線
 	intro.style.display="inline";
 	var req= new XMLHttpRequest();
-	req.open("get","http://elmmaple.github.io/"+cardname+".html");
+	req.open("get","https://elmmaple.github.io/elm/"+cardname+".html");
 	req.onload = function(){//load事件，偵測連線的狀態結束
 		//連線完成
 		var intro = document.getElementById("intro");
