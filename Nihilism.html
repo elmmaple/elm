@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="BIG5">
+<title>Insert title here</title>
+<style type="text/css">
+body{
+  background-repeat:no-repeat;
+  /*background-size:100%;*/
+  /*overflow:hidden;*/
+  background-attachment:fixed;
+  background-size:cover;
+  background-color:black;
+}
+img{
+  display: block;
+  width: 50%;
+}
+.container_N{
+	width:900px;
+}
+.cards{
+	height:252px;
+	width:auto;
+}
+.frame{
+	display:flex;
+}
+iframe{
+	margin-left:25%;
+	border-radius:20px;/*修剪影片圓角*/
+	box-show:0 0 10px rgba(0,0,0,.1);/*加上影子?目前不會用*/
+	/*position:fixed;
+	z-index:1;/*層數,最上=1*/
+}
+.pics{ position:relative;}
+#img1{ position:absolute;
+ 	
+ }
+#img3{ position:absolute;
+  /* 淡出淡入效果2秒 */
+  
+ }
+ #img2{ position:absolute;
+  /* 淡出淡入效果2秒 */
+  
+ } 
+/*.pics:hover #img2{ 
+	opacity:0; 
+	-webkit-transition: opacity 4s ease-in-out;
+	transition: opacity 4s ease-in-out;
+}
+ .pics:hover #img3{
+	opacity:0;
+	-webkit-transition: opacity 2s ease-in-out;
+	-moz-transition: opacity 2s ease-in-out;
+	-o-transition: opacity 2s ease-in-out;
+	transition: opacity 2s ease-in-out;
+ }*/
+ .pics:hover #img2{ 
+	opacity:0; 
+	transition: opacity 2s ease-in-out;
+	transition-delay: 2s;
+}
+ .pics:hover #img3{
+	opacity: 0;
+	transition: opacity 2s ease-in-out;
+ }
+</style>
+</head>
+<body>
+<div class = "container_N">
+	<div style= "color:white"><span style="font-size:40px;">Nihilism Playing Cards</span><br/><hr/>
+	Nihilism Playing Cards is crafted by the latest paper stock - "Vintage Stock", which I would say is
+	 the best stock ever. The stock is thin, flexible, and features a moderate stiffness. To be specific
+	 , it is as thin as the Luxury Stock (Scythe), and the stiffness is right between the Luxury and the
+	  Classic (Prototype) Stock. As for the finish, I chose to use the "Legendary Finish", the finest 
+	  finish that is able to keep the cards smooth and durable for both cutting and fanning.Tuck box is 
+	  made of Matt Paper,  this makes the surface of the box darker and richer in texture.<hr/>
+	  <div class="frame">
+	  <div class="pics">
+    	<img id="img1"class="cards"src="Nihilism2.png" alt="滑入顯示的圖片"><!-- first -->
+    	<img id="img2"class="cards"src="Nihilism1.png" alt="原本顯示的圖片"><!-- second -->
+    	<img id="img3"class="cards"src="Nihilism0.png" alt="原本顯示的圖片">
+	  </div>
+	  <iframe style="text-align:center"width="448" height="252" src="https://www.youtube.com/embed/zEMTSaXfCtA" frameborder="0" 
+	  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+	   </div>
+	   <hr/>Cards: 55<span style="padding-right:80px;padding-left:80px;">Stock: Vintage</span>Finish: Legendary<span style="padding-left:80px;">Design by Westmen</span>
+	  </div>
+</div>
+</body>
+</html>

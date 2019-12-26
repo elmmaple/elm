@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="BIG5">
+<meta name="viewport" content = "width=device-width,initial-scale=1,maximum-scale=1"/> <!-- 手機網頁必加 !-->
+<title>Magic Store</title>
+<style type="text/css">
+body{
+  background: url(世界冠軍.jpg);
+  background-repeat:no-repeat;
+  /*background-size:100%;*/
+  /*overflow:hidden;*/
+  background-attachment:fixed;
+  background-size:cover;
+}
+div{margin:0;border:0;}/*消除所有div間距*/
+
+.container{
+	width: 150px;/*外區塊限制圖片大小*/
+}
+.cardfirst{
+  /* 設定父親定位點 */
+  position: relative;
+  width: 270px;/*外區塊限制圖片大小*/
+  float:none;
+  margin: 10px;
+}
+.card{
+  /* 設定父親定位點 */
+  position: relative;
+  width: 270px;/*外區塊限制圖片大小*/
+  float:none;
+  margin: 10px;
+}
+img.poker {
+  display: block;
+  width: 50%;
+}
+img.facebook{
+	display: block;
+	width: 100vw;
+	background-attachment:fixed;
+}
+.info{
+/*   display: none; */
+  opacity: 0;/*透明關??*/
+  position: absolute;
+  box-sizing: border-box;
+  /*background-color: rgba(0,0,0,.4);/*3顏色+.透明度*/
+  bottom:0;
+  
+  background: linear-gradient(150deg,rgba(255, 255, 255,0)10%,rgba(0, 0, 0,.9) 100% );/*0deg下至上90deg左至右180deg上至下270deg右至左，斜的舊中間值150之類*/
+  
+  width: 50%;
+  height: 100%;
+  text-align: center;
+  padding-top:50%;
+  
+  font-size:20px; color: #fff;
+}
+/*.info p{
+  font-size:20px;
+  color: #fff;
+}*/
+.info:hover{
+  -webkit-transition: 500ms;/*碰觸出現的時間速度，越長越慢*/
+  opacity: 1;/*透明開*/
+  cursor: pointer; 
+}
+.frame{
+	display:flex;
+}
+
+*{   /*需再研究*/
+	margin: 0;
+    padding: 0;/*讓最下面不會有空格*/
+}
+.intro{
+	color:white;
+	width:900px;
+	/*position:fixed;*/
+	/*height:550px;*/
+	position:absolute;
+	margin-top:10px;
+	margin-left:18%;
+	font-size:25px;
+	text-align:justify;
+	display:none;
+	background-color: rgba(0,0,0,.67);
+	padding-left:50px;
+	padding-right:50px;
+	padding-top:20px;
+	padding-bottom:10px;
+}
+.menu:hover{
+	cursor:pointer;
+}
+/*#Box2,#Box3,#Box4{
+    width:130px;
+    height:180px;
+    padding:10px;
+    border:1px #ccc dashed;
+    float:left;
+    margin-right:10px;
+}*/
+/*#Img2{
+	width:100%;
+	height:100%;
+}*/
+.close{
+	/*display:none;*/
+}
+</style>
+
+</head>
+
+<script type="text/javascript">
+
+/*function AllowDrop(event){
+    event.preventDefault();
+}
+function Drag(event){
+    event.dataTransfer.setData("text",event.currentTarget.id);
+}
+function Drop(event){
+    event.preventDefault();
+    var data=event.dataTransfer.getData("text");
+    event.currentTarget.appendChild(document.getElementById(data));
+}
+*/
+var cardchange;
+var c= "Nihilism";
+function toggleMenu(){
+	var menu = document.getElementById("card");
+	/*menu.classList.toggle("menu");//toggle=切換class有無*/
+	if(menu.style.visibility=="hidden"){
+		menu.style.visibility="visible";
+		/*這裡吧*/
+		Nihilism.src= "Nihilism.png";
+	}else{
+		menu.style.visibility="hidden";
+		if(c!="Nihilism"){
+			Nihilism.src= c+".png";
+		}
+	}
+}
+function Diffcard(cardname){
+	cardchange = document.getElementById(cardname);
+	c=cardname;
+	//XMLHttpRequest物件專門和伺服器做連線
+	intro.style.display="inline";
+	var req= new XMLHttpRequest();
+	req.open("get","http://elmmaple.github.io/"+cardname+".html");
+	req.onload = function(){//load事件，偵測連線的狀態結束
+		//連線完成
+		var intro = document.getElementById("intro");
+		intro.innerHTML=this.responseText;//+"<iframe width=\"448\" height=\"252\" src=\"https://www.youtube.com/embed/zEMTSaXfCtA\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>";
+		//console.log(this.responseText);
+	};
+	req.send();//送出連線
+
+}
+</script>
+
+<body id="main" style="-webkit-user-select: none; -moz-user-select: none; unselectable:on">
+<!--<div>
+<img class="menu" src="Nihilism.png" onclick = "toggleMenu()" style="border:0px solid blue;padding-left:5px;position:absolute"></img>
+</div>-->
+
+<!--<div id="Box2" ondrop="Drop(event)" ondragover="AllowDrop(event)">
+</div>
+<div id="Box3" ondrop="Drop(event)" ondragover="AllowDrop(event)"></div>
+<div id="Box4" ondrop="Drop(event)" ondragover="AllowDrop(event)"></div>
+<div style="clear:both;"></div>
+-->
+
+<div class = "frame" style="border:0px solid red">
+
+
+<div class="container" id="menu" style = "border:0px solid green"onmouseover="toggleMenu()"onmouseout="toggleMenu()">
+  <div class="cardfirst" style="border:0px solid purple" >
+    <img class="poker" src="Nihilism.png" id="Nihilism"  alt="">
+    <div class="info" onclick="Diffcard('Nihilism');" >
+      	View more
+    </div>
+  </div>
+
+<div id="card" style="visibility: hidden"> 
+
+  <div class="card" style="border:0px solid purple;">
+    <img class="poker" src="Palette.png" id="Palette" alt=""style="border:0px solid blue">
+    <button class="info" onclick="Diffcard('Palette');">
+      	View more
+    </button>
+  </div>
+  
+  <div class="card"  style="border:0px solid purple">
+    <img class="poker" src="Fuckyou.png" id="Fuckyou" alt="">
+    <button class="info" onclick="Diffcard('Fuckyou');">
+      	View more
+    </button>
+  </div>
+  
+  <div class="card">
+    <img class="poker" src="Watercolor.png" id="Watercolor" alt="">
+    <button class="info" onclick="Diffcard('Watercolor');">
+      	View more
+    </button>
+  </div>
+  
+  <div class="card">
+    <img class="poker" src="Bulletflyblack.png" id="Bulletflyblack" alt="">
+    <button class="info" onclick="Diffcard('Bulletflyblack');">
+      	View more
+    </button>
+  </div>
+
+  <div class="card">
+	<img class="poker" src="Pearl_sunrise.png" alt="">
+	<button class="info" onclick="Diffcard('Pearl_sunrise');">
+      	View more
+    </button>
+  </div>
+	  
+  <div class="card">
+	<img class="poker" src="Pearl_sunset.png" alt="">
+	<button class="info" onclick="Diffcard('Pearl_sunset');">
+    	View more
+    </button>
+  </div>
+	  	  
+  <div class="card">
+	<img class="poker" src="冰淇淋.png" alt="">
+	<button class="info" onclick="Diffcard();">
+     	View more
+    </button>
+  </div>
+  
+  <div class="card">
+	<img class="poker" src="冰封牌.png" alt="">
+	<button class="info" onclick="Diffcard();">
+     	View more
+    </button>
+  </div>
+</div>  
+	 
+</div>
+
+	 <div id="intro" class ="intro" ></div>
+
+</div>
+<footer>
+	<img class="facebook" src="footer.png" alt="" style="position:relative">
+</footer>
+</body>
+</html>

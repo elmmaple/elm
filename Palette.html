@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="BIG5">
+<title>Insert title here</title>
+<style type="text/css">
+body{
+  background-repeat:no-repeat;
+  /*background-size:100%;*/
+  /*overflow:hidden;*/
+  background-attachment:fixed;
+  background-size:cover;
+  background-color:black;
+}
+img{
+  display: block;
+  width: 50%;
+}
+.container_N{
+	width:900px;
+}
+.cards{
+	height:252px;
+	width:auto;
+}
+.frame{
+	display:flex;
+}
+iframe{
+	margin-left:25%;
+	border-radius:20px;/*修剪影片圓角*/
+	box-show:0 0 10px rgba(0,0,0,.1);/*加上影子?目前不會用*/
+	/*position:fixed;
+	z-index:1;/*層數,最上=1*/
+}
+.pics{ position:relative;}
+#img1{ position:absolute;
+ 	
+ }
+#img3{ position:absolute;
+  /* 淡出淡入效果2秒 */
+  
+ }
+ #img2{ position:absolute;
+  /* 淡出淡入效果2秒 */
+  
+ } 
+/*.pics:hover #img2{ 
+	opacity:0; 
+	-webkit-transition: opacity 4s ease-in-out;
+	transition: opacity 4s ease-in-out;
+}
+ .pics:hover #img3{
+	opacity:0;
+	-webkit-transition: opacity 2s ease-in-out;
+	-moz-transition: opacity 2s ease-in-out;
+	-o-transition: opacity 2s ease-in-out;
+	transition: opacity 2s ease-in-out;
+ }*/
+ .pics:hover #img2{ 
+	opacity:0; 
+	transition: opacity 2s ease-in-out;
+	transition-delay: 2s;
+}
+ .pics:hover #img3{
+	opacity: 0;
+	transition: opacity 2s ease-in-out;
+ }
+</style>
+</head>
+<body>
+<div class = "container_N">
+	<div style= "color:white"><span style="font-size:40px;">Palette Playing Cards</span><br/><hr/>
+	Palette Playing Cards, the most important think of this deck is the connection. Ace of spades, back,
+	jokers and Tuck case design are smoothly connected with 4 colors and 5 shapes.Tuck case with matte 
+	paper is designed as one piece of art and a small book. The pattern at front and back of tuck case 
+	is same to each joker and corner of cards back. When you open the flap of the case, you can see the 
+	black dot on the flap and white dot on the back of cards. Every single detail is calculated at the 
+	design process. Finally, here is our PALETTE. Hope you enjoy our works.<hr/>
+	  <div class="frame">
+	  <div class="pics">
+    	<img id="img1"class="cards"src="Palette2.png" alt="滑入顯示的圖片"><!-- first -->
+    	<img id="img2"class="cards"src="Palette1.png" alt="原本顯示的圖片"><!-- second -->
+    	<img id="img3"class="cards"src="Palette0.png" alt="原本顯示的圖片">
+	  </div>
+	  <iframe style="text-align:center"width="448" height="252" src="https://www.youtube.com/embed/Cq5IkQpSmBk" frameborder="0" 
+	  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+	   </div>
+	   <hr/>Cards: 54<span style="padding-right:80px;padding-left:80px;">Stock: Classic</span>Finish: Magic<span style="padding-left:80px;">Designed by ITS TEAM</span>
+	  </div>
+</div>
+</body>
+</html>
