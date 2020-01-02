@@ -1,8 +1,8 @@
-<!DOCTYPE html>
+ï»¿<!DOCTYPE html>
 <html>
 <head>
 <meta charset="BIG5">
-<meta name="viewport" content = "width=device-width,initial-scale=1,maximum-scale=1"/> <!-- ¤â¾÷ºô­¶¥²¥[ !-->
+<meta name="viewport" content = "width=device-width,initial-scale=1,maximum-scale=1"/> <!-- æ‰‹æ©Ÿç¶²é å¿…åŠ  !-->
 <link type="text/css" rel="stylesheet" href="https://elmmaple.github.io/elm/index.css" />
 <title>Magic Store</title>
 <script src="https://code.jquery.com/jquery-3.4.1.js"
@@ -79,23 +79,23 @@
 	<aside class="slider_container">
 			<div>
 				<img src="new03.png" alt="" />
-				<span class="info">·s«~¤W¥«</span>
+				<span class="info">æ–°å“ä¸Šå¸‚</span>
 			</div>
 			<div>
 				<img src="new02.png" alt="" />
-				<span class="info">·s«~¤W¥«</span>
+				<span class="info">æ–°å“ä¸Šå¸‚</span>
 			</div>
 			<div>
 				<img src="new00.png" alt="" />
-				<span class="info">·s«~¤W¥«</span>
+				<span class="info">æ–°å“ä¸Šå¸‚</span>
 			</div>
 			<div>
 				<img src="new01.png" alt="" />
-				<span class="info">·s«~¤W¥«</span>
+				<span class="info">æ–°å“ä¸Šå¸‚</span>
 			</div>
 			<div>
 				<img src="spring.png" alt="" />
-				<span class="info">»Å¬¯¦h¼Ë¾Ş§@</span>
+				<span class="info">é…·ç‚«å¤šæ¨£æ“ä½œ</span>
 			</div>
 	</aside>	
 </main>
@@ -115,10 +115,10 @@ var cardchange;
 var c= "Nihilism";
 function toggleMenu(){
 	var menu = document.getElementById("card");
-	/*menu.classList.toggle("menu");//toggle=¤Á´«class¦³µL*/
+	/*menu.classList.toggle("menu");//toggle=åˆ‡æ›classæœ‰ç„¡*/
 	if(menu.style.visibility=="hidden"){
 		menu.style.visibility="visible";
-		/*³o¸Ì§a*/
+		/*é€™è£¡å§*/
 		Nihilism.src= "Nihilism.png";
 	}else{
 		menu.style.visibility="hidden";
@@ -130,19 +130,19 @@ function toggleMenu(){
 function Diffcard(cardname){
 	cardchange = document.getElementById(cardname);
 	c=cardname;
-	//XMLHttpRequestª«¥ó±Mªù©M¦øªA¾¹°µ³s½u
+	//XMLHttpRequestç‰©ä»¶å°ˆé–€å’Œä¼ºæœå™¨åšé€£ç·š
 	article.style.visibility="visible";
 	var req= new XMLHttpRequest();
 	req.open("get","https://elmmaple.github.io/elm/"+cardname+".html");
-	req.onload = function(){//load¨Æ¥ó¡A°»´ú³s½uªºª¬ºAµ²§ô
-		//³s½u§¹¦¨
+	req.onload = function(){//loadäº‹ä»¶ï¼Œåµæ¸¬é€£ç·šçš„ç‹€æ…‹çµæŸ
+		//é€£ç·šå®Œæˆ
 		var intro = document.getElementById("intro");
 		var X = document.getElementById("X");
 		X.style.display = "inline";
 		intro.innerHTML=this.responseText;//+"<iframe width=\"448\" height=\"252\" src=\"https://www.youtube.com/embed/zEMTSaXfCtA\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>";
 		//console.log(this.responseText);
 	};
-	req.send();//°e¥X³s½u
+	req.send();//é€å‡ºé€£ç·š
 }
 function closed(){
 	article.style.visibility="hidden";
