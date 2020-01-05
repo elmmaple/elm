@@ -1,9 +1,10 @@
-ï»¿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
 <meta charset="BIG5">
-<meta name="viewport" content = "width=device-width,initial-scale=1,maximum-scale=1"/> <!-- æ‰‹æ©Ÿç¶²é å¿…åŠ  !-->
+<meta name="viewport" content = "width=device-width,initial-scale=1,maximum-scale=1"/> <!-- ¤â¾÷ºô­¶¥²¥[ !-->
 <link type="text/css" rel="stylesheet" href="https://elmmaple.github.io/elm/index.css" />
+<link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
 <title>Magic Store</title>
 <script src="https://code.jquery.com/jquery-3.4.1.js"
 	  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
@@ -12,17 +13,40 @@
 <style type="text/css">
 
 </style>
-
 </head>
-<body id="main" style="-webkit-user-select: none; -moz-user-select: none; unselectable:on">
-
-<article id="article">
-	<div class ="intro" id="intro"></div>
-   	<div class="X" id="X" onclick="closed();">X</div>
-</article>
-<div id="wraper" class="close">
-		<div class="menu">
-	        <div class="box" id="box">
+<body style="-webkit-user-select: none; -moz-user-select: none; unselectable:on">
+<header>
+	<nav>
+		<ul class="drop-down-menu">
+	        <li><a class="combine"href="#"><div class="onlyabout">More</div><div class="arrow">&#10148</div></a>
+				<ul>
+					<li><a href="#">Buy them now</a>
+							<ul>
+		                        <li><a href="https://shopee.tw/hansonchienproduction">Shopee</a>
+		                        </li>
+		                        <li><a href="https://www.hanson-chien.com/">Shopline</a>
+		                        </li>
+	                        </ul>
+					</li>
+					<li><a href="#">Follow us</a>
+						<ul>
+	                        <li><a href="https://www.facebook.com/hansonchienproduction/">FB</a>
+	                        </li>
+	                        <li><a href="https://www.instagram.com/hansonchienproduction/">IG</a>
+	                        </li>
+	                    </ul>
+					</li>
+				</ul>
+	        </li>
+	    </ul>
+	</nav>
+</header>
+<div id="mwt_mwt_slider_scroll">
+	<div id="mwt_fb_tab">
+		<span>&#9889Playing Cards</span>
+	</div>
+<div id="mwt_slider_content">
+	<div class="box" id="box">
 	            <div class="picturelist">
 	            	<img class="picture" src="Nihilism.png" alt="" style="border:0px solid purple">
 	            	<div class="information" onclick="Diffcard('Nihilism');" >
@@ -66,108 +90,75 @@
 	    			</div>
 	            </div>
 	        </div>
-	        <div class="btn" id="btn">
-	            <span>&#9889</span>
-	        </div>
-		</div>
-	</div>
-<header>
-	<nav>
-	</nav>
-</header>
+</div>
+</div>
+<article id="article">
+	<div class ="intro" id="intro"></div>
+   	<div class="X" id="X" onclick="closed();">X</div>
+</article>
 <main>
 	<aside class="slider_container">
 			<div>
 				<img src="new03.png" alt="" />
-				<span class="info">æ–°å“ä¸Šå¸‚</span>
+				<span class="info">·s«~¤W¥«</span>
 			</div>
 			<div>
 				<img src="new02.png" alt="" />
-				<span class="info">æ–°å“ä¸Šå¸‚</span>
+				<span class="info">·s«~¤W¥«</span>
 			</div>
 			<div>
 				<img src="new00.png" alt="" />
-				<span class="info">æ–°å“ä¸Šå¸‚</span>
+				<span class="info">·s«~¤W¥«</span>
 			</div>
 			<div>
 				<img src="new01.png" alt="" />
-				<span class="info">æ–°å“ä¸Šå¸‚</span>
+				<span class="info">·s«~¤W¥«</span>
 			</div>
 			<div>
 				<img src="spring.png" alt="" />
-				<span class="info">é…·ç‚«å¤šæ¨£æ“ä½œ</span>
+				<span class="info">»Å¬¯¦h¼Ë¾Ş§@</span>
 			</div>
 	</aside>	
 </main>
 </body>
-<script type="text/javascript">
+<script>
+$(function(){
+    var w = $('#mwt_slider_content').width();
+    $('#mwt_slider_content').css('height', ($(window).height() - 20) + 'px' ); //±N°Ï¶ô¦Û°Ê¼µº¡µe­±°ª«×
 
-var box;
-/*window.onload=function(){
-	box = document.getElementById("box");
-	window.setInterval(scroll,50);
-};
-function scroll(){
-	box.scrollTop++;	
-}*/
+	$("#mwt_fb_tab").click(function(){ //·Æ¹«·Æ¤J®É
+	    if ($("#mwt_mwt_slider_scroll").css('left') == '-'+w+'px')
+	    {
+	        $("#mwt_mwt_slider_scroll").animate({ left:'0px' }, 500 ,'swing');
+	    }
+	});
 
-var cardchange;
-var c= "Nihilism";
-function toggleMenu(){
-	var menu = document.getElementById("card");
-	/*menu.classList.toggle("menu");//toggle=åˆ‡æ›classæœ‰ç„¡*/
-	if(menu.style.visibility=="hidden"){
-		menu.style.visibility="visible";
-		/*é€™è£¡å§*/
-		Nihilism.src= "Nihilism.png";
-	}else{
-		menu.style.visibility="hidden";
-		if(c!="Nihilism"){
-			Nihilism.src= c+".png";
-		}
-	}
-}
+
+	$("#mwt_slider_content").mouseleave(function(){¡@//·Æ¹«Â÷¶}«á
+	    $("#mwt_mwt_slider_scroll").animate( { left:'-'+w+'px' }, 500 ,'swing');    
+	}); 
+});
+
 function Diffcard(cardname){
 	cardchange = document.getElementById(cardname);
 	c=cardname;
-	//XMLHttpRequestç‰©ä»¶å°ˆé–€å’Œä¼ºæœå™¨åšé€£ç·š
+	//XMLHttpRequestª«¥ó±Mªù©M¦øªA¾¹°µ³s½u
 	article.style.visibility="visible";
 	var req= new XMLHttpRequest();
 	req.open("get","https://elmmaple.github.io/elm/"+cardname+".html");
-	req.onload = function(){//loadäº‹ä»¶ï¼Œåµæ¸¬é€£ç·šçš„ç‹€æ…‹çµæŸ
-		//é€£ç·šå®Œæˆ
+	req.onload = function(){//load¨Æ¥ó¡A°»´ú³s½uªºª¬ºAµ²§ô
+		//³s½u§¹¦¨
 		var intro = document.getElementById("intro");
 		var X = document.getElementById("X");
 		X.style.display = "inline";
 		intro.innerHTML=this.responseText;//+"<iframe width=\"448\" height=\"252\" src=\"https://www.youtube.com/embed/zEMTSaXfCtA\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>";
 		//console.log(this.responseText);
 	};
-	req.send();//é€å‡ºé€£ç·š
+	req.send();//°e¥X³s½u
 }
 function closed(){
 	article.style.visibility="hidden";
 	X.style.display="none";
 }
-$(document).ready(function () {
-    var value = "close";
-    $(".btn").click(function () {
-        if (value == "open") {
-            $("#wraper").removeClass("close");
-            btn.innerHTML="&#9889;";
-            btn.style.fontSize="30px";
-            $("#wraper").addClass("close");
-            $("body").removeClass("over-hidden");
-            value = "close";
-        }
-        else {
-            $("#wraper").removeClass("close");
-            btn.innerHTML="&#9668";
-            btn.style.fontSize="20px";
-            $("#wraper").addClass("open");
-            $("body").addClass("over-hidden");
-            value = "open";
-        }
-    });
-});
 </script>
 </html>
