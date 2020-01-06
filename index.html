@@ -5,16 +5,26 @@
 <meta name="viewport" content = "width=device-width,initial-scale=1,maximum-scale=1"/> <!-- 手機網頁必加 !-->
 <link type="text/css" rel="stylesheet" href="https://elmmaple.github.io/elm/index.css" />
 <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 <title>Magic Store</title>
+</head>
 <script src="https://code.jquery.com/jquery-3.4.1.js"
 	  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
 		  crossorigin="anonymous">
 </script>
 <style type="text/css">
-
 </style>
-</head>
+
 <body style="-webkit-user-select: none; -moz-user-select: none; unselectable:on">
+<div class="load">
+	<img class ="spinner-border" src="Nihilism0.png">
+	<img class ="spinner-border" src="Palette0.png">
+	<img class ="spinner-border" src="Fuckyou0.png">
+	<img class ="spinner-border" src="Watercolor0.png">
+	<img class ="spinner-border" src="Bulletflyblack0.png">
+	<img class ="spinner-border" src="Pearl_sunrise0.png">
+	<img class ="spinner-border" src="Pearl_sunset0.png">
+</div>
 <header>
 	<nav>
 		<ul class="drop-down-menu">
@@ -38,12 +48,19 @@
 					</li>
 				</ul>
 	        </li>
+	        <li><a class="combine" onclick="whatiscardistry()"><div class="onlyabout">What is cardistry?</div></a>
+	        </li>
+	        <li><a class="combine"href="#"><div class="onlyabout">Hot move</div><div class="arrow">&#10148</div></a>
+				<ul>
+					
+				</ul>
+	        </li>
 	    </ul>
 	</nav>
 </header>
 <div id="mwt_mwt_slider_scroll">
 	<div id="mwt_fb_tab">
-		<span>&#9889Playing Cards</span>
+		<span style="font-size:35px">P</span><span>laying Cards</span><span style="font-size:20px ;color:red"> &#10148</span>
 	</div>
 <div id="mwt_slider_content">
 	<div class="box" id="box">
@@ -97,48 +114,129 @@
    	<div class="X" id="X" onclick="closed();">X</div>
 </article>
 <main>
-	<aside class="slider_container">
-			<div>
-				<img src="new03.png" alt="" />
-				<span class="info">新品上市</span>
-			</div>
-			<div>
-				<img src="new02.png" alt="" />
-				<span class="info">新品上市</span>
-			</div>
-			<div>
-				<img src="new00.png" alt="" />
-				<span class="info">新品上市</span>
-			</div>
-			<div>
-				<img src="new01.png" alt="" />
-				<span class="info">新品上市</span>
-			</div>
-			<div>
-				<img src="spring.png" alt="" />
-				<span class="info">酷炫多樣操作</span>
-			</div>
-	</aside>	
+	<div class="slider">
+		<div>
+			<div class="slider_control">1</div>
+			<div class="slider_control">2</div>
+			<div class="slider_control">3</div>
+			<div class="slider_control">4</div>
+			<div class="slider_control">5</div>
+		</div>
+		<aside class="slider_container">
+					
+				<div class="pic" id="run05">
+					<img src="new03.png" alt="" />
+					<span class="info">新品上市</span>
+				</div>
+				<div class="pic" id="run04">
+					<img src="new02.png" alt="" />
+					<span class="info">新品上市</span>
+				</div>
+				<div class="pic" id="run03">
+					<img src="new00.png" alt="" />
+					<span class="info">新品上市</span>
+				</div>
+				<div class="pic" id="run02">
+					<img src="new01.png" alt="" />
+					<span class="info">新品上市</span>
+				</div>
+				<div class="pic" id="run01">
+					<img src="spring.png" alt="" />
+					<span class="info">酷炫多樣操作</span>
+				</div>
+		</aside>
+	</div>
 </main>
 </body>
 <script>
-$(function(){
-    var w = $('#mwt_slider_content').width();
-    $('#mwt_slider_content').css('height', ($(window).height() - 20) + 'px' ); //將區塊自動撐滿畫面高度
-
-	$("#mwt_fb_tab").click(function(){ //滑鼠滑入時
-	    if ($("#mwt_mwt_slider_scroll").css('left') == '-'+w+'px')
-	    {
-	        $("#mwt_mwt_slider_scroll").animate({ left:'0px' }, 500 ,'swing');
-	    }
-	});
 
 
-	$("#mwt_slider_content").mouseleave(function(){　//滑鼠離開後
-	    $("#mwt_mwt_slider_scroll").animate( { left:'-'+w+'px' }, 500 ,'swing');    
-	}); 
+/*enquire.register("screen and (max-width: 500px)",{  //還不會用的寫法*
+	setup: function() {
+		$("#mwt_fb_tab").click(function(){ //滑鼠滑入時
+			if($("#mwt_mwt_slider_scroll").css('left') == '-'+w+'px'){
+		    	$("#mwt_mwt_slider_scroll").animate({ left:'0px' }, 500 ,'swing');
+			}
+		});
+		$("#mwt_fb_tab").click(function(){　//滑鼠離開後
+			if($("#mwt_mwt_slider_scroll").css('left') == '0px'){
+				$("#mwt_mwt_slider_scroll").animate( { left:'-'+w+'px' }, 500 ,'swing');    
+			} 
+	   	});
+        // 網頁載入時執行一次
+    },
+    match: function() {
+    	$("#mwt_fb_tab").click(function(){ //滑鼠滑入時
+			if($("#mwt_mwt_slider_scroll").css('left') == '-'+w+'px'){
+		    	$("#mwt_mwt_slider_scroll").animate({ left:'0px' }, 500 ,'swing');
+			}
+		});
+		$("#mwt_fb_tab").click(function(){　//滑鼠離開後
+			if($("#mwt_mwt_slider_scroll").css('left') == '0px'){
+				$("#mwt_mwt_slider_scroll").animate( { left:'-'+w+'px' }, 500 ,'swing');    
+			} 
+	   	});
+        // JavaScript here
+        // 當CSS media query計算的視窗寬度小於769px時執行
+        // 網頁載入時執行一次
+        // 之後每次改變視窗時會再執行一次
+    },
+    unmatch: function() {
+    	$("#mwt_fb_tab").mouseover(function(){ //滑鼠滑入時
+		    if($("#mwt_mwt_slider_scroll").css('left') == '-'+w+'px'){
+		        $("#mwt_mwt_slider_scroll").animate({ left:'0px' }, 500 ,'swing');
+		    }
+    	});
+		$("#mwt_slider_content").mouseleave(function(){　//滑鼠離開後
+		    	$("#mwt_mwt_slider_scroll").animate( { left:'-'+w+'px' }, 500 ,'swing');    
+		}); 
+        // JavaScript here
+        // 當CSS media query計算的視窗寬度大於等於769px時執行
+        // 網頁載入時不會執行
+        // 之後每次改變視窗時會再執行一次
+    }
 });
-
+*/
+$(function(){
+	$(".load").fadeOut(3000);
+	var w = $("#mwt_slider_content").width();
+	$('#mwt_slider_content').css('height', ($(window).height() - 20) + 'px' );
+	$(".slider_container").click(function(){
+		/*alert($("#run01").css('opacity') + $("#run02").css('opacity') + $("#run03").css('opacity'));*/
+		if(($("#run01").css('opacity') <= '1') && ($("#run01").css('opacity') > '0')){
+			document.location="http://localhost:8080/Test1/Whatiscardistry.html";
+		}else if(($("#run02").css('opacity') <= '1') && ($("#run02").css('opacity') > '0')){
+			document.location="https://www.hanson-chien.com/products/odyssey-nova";
+		}else if(($("#run03").css('opacity') <= '1') && ($("#run03").css('opacity') > '0')){
+			document.location="https://www.hanson-chien.com/products/odyssey-nova";
+		}else if(($("#run04").css('opacity') <= '1') && ($("#run04").css('opacity') > '0')){
+			document.location="https://www.hanson-chien.com/products/odyssey-nova";
+		}else if(($("#run05").css('opacity') <= '1') && ($("#run05").css('opacity') > '0')){
+			document.location="https://www.hanson-chien.com/products/pearl-sunset";
+		}
+	});
+	if($(window).width() < 500){
+		$("#mwt_fb_tab").click(function(){ //滑鼠滑入時
+			if($("#mwt_mwt_slider_scroll").css('left') == '-'+w+'px'){
+		    	$("#mwt_mwt_slider_scroll").animate({ left:'0px' }, 500 ,'swing');
+			}
+		});
+		$("#mwt_fb_tab").click(function(){　//滑鼠離開後
+			if($("#mwt_mwt_slider_scroll").css('left') == '0px'){
+				$("#mwt_mwt_slider_scroll").animate( { left:'-'+w+'px' }, 500 ,'swing');    
+			} 
+	   	}); 
+	}else{
+		$("#mwt_fb_tab").mouseover(function(){ //滑鼠滑入時
+		    if($("#mwt_mwt_slider_scroll").css('left') == '-'+w+'px'){
+		        $("#mwt_mwt_slider_scroll").animate({ left:'0px' }, 500 ,'swing');
+		    }
+    	});
+		$("#mwt_slider_content").mouseleave(function(){　//滑鼠離開後
+		    	$("#mwt_mwt_slider_scroll").animate( { left:'-'+w+'px' }, 500 ,'swing'); 
+		});
+	}
+});
 function Diffcard(cardname){
 	cardchange = document.getElementById(cardname);
 	c=cardname;
@@ -160,5 +258,12 @@ function closed(){
 	article.style.visibility="hidden";
 	X.style.display="none";
 }
+function whatiscardistry(){
+	document.location="https://elmmaple.github.io/elm/Whatiscardistry.html";
+}
+function newproduct(){
+
+}
+
 </script>
 </html>

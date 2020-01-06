@@ -1,0 +1,157 @@
+@CHARSET "BIG5";
+
+body{
+  background-repeat:no-repeat;
+  /*background-size:100%;*/
+  /*overflow:hidden;*/
+  background-attachment:fixed;
+  background-size:cover;
+}
+.cards{
+	height:252px;
+}
+.frame_card{
+	border:0px solid red;
+	margin-top:20px;
+	margin-bottom:20px;
+}
+.pics{
+	position:relative;
+}
+.pics img{
+	position:absolute;
+	opacity: 0;
+    filter: alpha(opacity=0);
+	animation-iteration-count:infinite;
+}
+.pics img {
+    -webkit-animation: OX 18s linear infinite;
+            animation: OX 18s linear infinite;
+}
+
+@-webkit-keyframes OX {
+    5% {
+        opacity: 1;
+        filter: alpha(opacity=100);
+        /* 0 - 1秒 淡入*/
+    }
+    38% {
+        opacity: 1;
+        filter: alpha(opacity=100);
+        /* 1- 5秒靜止*/
+    }
+    41% {
+        opacity: 0;
+        filter: alpha(opacity=0);
+        /* 5-6秒淡出*/
+    }
+}
+@keyframes OX {
+    5% {
+        opacity: 1;
+        filter: alpha(opacity=100);
+        /* 0 - 1秒 淡入*/
+    }
+    38% {
+        opacity: 1;
+        filter: alpha(opacity=100);
+        /* 1- 5秒靜止*/
+    }
+    41% {
+        opacity: 0;
+        filter: alpha(opacity=0);
+        /* 5-6秒淡出*/
+    }
+}
+.pics img:nth-child(3) {
+    -webkit-animation-delay: 0s;
+            animation-delay: 0s;
+}
+
+.pics img:nth-child(2) {
+    -webkit-animation-delay: 6s;
+            animation-delay: 6s;
+}
+
+.pics img:nth-child(1) {
+    -webkit-animation-delay: 12s;
+            animation-delay: 12s;
+}
+
+iframe{
+	margin-left:20%;
+	border-radius:20px;/*修剪影片圓角*/
+	box-show:0 0 10px rgba(0,0,0,.1);/*加上影子?目前不會用*/
+	/*position:fixed;
+	z-index:1;/*層數,最上=1*/
+	width:448px;
+	height:252px;
+}
+.video{
+	margin-left:10%;
+	border:0px solid red;
+}
+ .btintro{
+ 	margin-right:80px;
+ 	text-align:center;
+ 	border:0px solid red;
+ 	font-size:30px;
+ }
+ .title{
+ 	font-size:40px;
+ }
+ .word{
+ 	font-size:25px;
+ }
+ @media screen and (max-width:1200px){
+	.cards{
+		height:200px;
+	}
+	iframe{
+		height:200px;
+		width:365px;
+	}
+	.video{
+		margin-left:10%;
+	}
+	.btintro{
+ 		margin-right:20px;
+ 	}
+ 	.title{
+ 		font-size:35px;
+ 	}
+ 	 .word{
+ 		font-size:20px;
+ 	}
+}
+ @media screen and (max-width:500px){
+	.cards{
+		height:150px;
+	}
+	iframe{
+		height:140px;
+		width:254px;
+		margin-left:0%;
+	}
+	.video{
+		padding-top:150px;
+		margin-left:0%;
+	}
+	.btintro{
+ 		margin-right:2px;
+ 		font-size:18px;
+	}
+	.title{
+ 		font-size:25px;
+ 	}
+ 	.word{
+ 		font-size:18px;
+ 	}	
+ 	.frame_card{
+		margin-top:10px;
+		margin-bottom:10px;
+	}
+}
+.background{
+	/*background-color:black;*/
+}
