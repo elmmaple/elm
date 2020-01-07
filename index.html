@@ -652,20 +652,20 @@ ul.drop-down-menu ul li:hover > ul { /* 第二層之後的選單展開位置*/
 		</div>
 		<aside class="slider_container">
 			<div class="pic" id="run05">
-				<img src="new03.png" alt="" />
-				<span class="info">新品上市</span>
+				<img src="Nova.png" alt="" />
+				<span class="info">Odyssey Nova Edition</span>
 			</div>
 			<div class="pic"id="run04">
-				<img src="new02.png" alt="" />
-				<span class="info">新品上市</span>
+				<img src="Aether.png" alt="" />
+				<span class="info">Odyssey Aether Edition</span>
 			</div>
 			<div class="pic" id="run03">
-				<img src="new00.png" alt="" />
-				<span class="info">新品上市</span>
+				<img src="Boreal.png" alt="" />
+				<span class="info">Odyssey Boreal Edition</span>
 			</div>
 			<div class="pic" id="run02">
-				<img src="new01.png" alt="" />
-				<span class="info">新品上市</span>
+				<img src="Odyssey.png" alt="" />
+				<span class="info">Odyssey Series</span>
 			</div>
 			<div class="pic" id="run01">
 				<img src="spring.png" alt="" />
@@ -724,6 +724,8 @@ ul.drop-down-menu ul li:hover > ul { /* 第二層之後的選單展開位置*/
     }
 });
 */
+/*var http = "http://localhost:8080/Test1/";*/
+var http = "https://elmmaple.github.io/elm/";
 $(function(){
 	$(".load").fadeOut(3000);
 	var w = $("#mwt_slider_content").width();
@@ -819,7 +821,7 @@ $(function(){
 	$(".slider_container").click(function(){
 		/*alert($("#run01").css('opacity') + $("#run02").css('opacity') + $("#run03").css('opacity'));*/
 		if(($("#run01").css('opacity') <= '1') && ($("#run01").css('opacity') > '0')){
-			document.location="https://elmmaple.github.io/elm/Whatiscardistry.html";
+			document.location= http +"Whatiscardistry.html";
 		}else if(($("#run02").css('opacity') <= '1') && ($("#run02").css('opacity') > '0')){
 			document.location="https://www.hanson-chien.com/products/odyssey-nova";
 		}else if(($("#run03").css('opacity') <= '1') && ($("#run03").css('opacity') > '0')){
@@ -875,7 +877,7 @@ function Diffcard(cardname){
 	//XMLHttpRequest物件專門和伺服器做連線
 	article.style.visibility="visible";
 	var req= new XMLHttpRequest();
-	req.open("get","https://elmmaple.github.io/elm/"+cardname+".html");
+	req.open("get",http+cardname+".html");
 	req.onload = function(){//load事件，偵測連線的狀態結束
 		//連線完成
 		var intro = document.getElementById("intro");
@@ -891,7 +893,7 @@ function closed(){
 	X.style.display="none";
 }
 function whatiscardistry(){
-	document.location="https://elmmaple.github.io/elm/Whatiscardistry.html";
+	document.location=http+"Whatiscardistry.html";
 }
 function newproduct(){
 
