@@ -3,6 +3,7 @@
 <head>
 <meta charset="BIG5">
 <meta name="viewport" content = "width=device-width,initial-scale=1,maximum-scale=1"/> <!-- 手機網頁必加 !-->
+<!--<link type="text/css" rel="stylesheet" href="https://elmmaple.github.io/elm/index.css" />上傳前再改 !-->
 <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 <title>Magic Store</title>
@@ -25,7 +26,6 @@ div{margin:0;border:0;}
     position:fixed;
     z-index:9998;
 }
-
 #mwt_slider_content{
 	background:black;
     text-align:center;
@@ -172,12 +172,11 @@ main{
     height: 420px;
     top:300px;
     position: relative;/*不放這行裡面東西圖片會跑出去區塊*/
-    border:0px solid green;
+    border:0px solid blue;
     display:flex;
 }
 .slider_control{
 	color:white;
-	border:0px solid red;
 	/*left:40px;*/
     width: 40px;
     height: 40px;
@@ -185,19 +184,31 @@ main{
     z-index:1;
     top:120px;
     font-size:25px;
-    background-color:black;
-    border:1px solid yellow;
-    text-align:center;
+	background: linear-gradient(150deg,rgba(153, 0, 255,.5)10%,rgba(0, 0, 0,.9) 100% );
+    border-left:0px solid yellow;
+    border-top:0px solid yellow;
+    border-bottom:0px solid yellow;
+    border-radius:10%;
+    /*text-align:center;*/
+    cursor: pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+.control{
+	height:90%;
+}
+.control:hover{
+	height:120%;
 }
 .slider_control:hover{
-	color:white;
-	background-color:red;
-	border:1px yellow outset;
+	/*color:black;*/
+	background: linear-gradient(150deg,rgba(255, 221, 34,0.9)10%,rgba(0, 0, 0,.9) 100% );
 }
 .slider_container {
     overflow:hidden;
     width: 600px;
-    height: 420px;
+    /*height: 420px;*/
     position: relative;
     /*border: 3px outset  black;*/
     /*border-bottom-width: 100px;*/
@@ -205,27 +216,35 @@ main{
     background-color: #f5f5f5;
     box-shadow: #666 0 0 5px;
     border-radius:10%;
-    border:1px white outset;
-    
-}
-.slider_container .pic {
-    position: absolute;
-    top: 0;
-    left: 0;
-    opacity: 0;
-    filter: alpha(opacity=0);
-    cursor:pointer;
+    border:1px purple outset;   
 }
 .slider_container img {
  	width: 600px;
     height: 420px;
 	background-position:center;
 }
-.slider_container .pic {
+.pic{
     -webkit-animation: round 25s linear infinite;
             animation: round 25s linear infinite;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    cursor:pointer;
+    border:0px solid red;
 }
-
+.run{
+	-webkit-animation: rounds 25s linear infinite;
+            animation: rounds 25s linear infinite;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    cursor:pointer;
+    border:0px solid red;
+}
 @-webkit-keyframes round {
     4% {
         opacity: 1;
@@ -260,27 +279,62 @@ main{
         /* 5-6秒淡出*/
     }
 }
-.slider_container div:nth-child(5) {
+@-webkit-keyframes rounds {
+    4% {
+        opacity: 1;
+        filter: alpha(opacity=100);
+        /* 0 - 1秒 淡入*/
+    }
+    20% {
+        opacity: 1;
+        filter: alpha(opacity=100);
+        /* 1- 5秒靜止*/
+    }
+    24% {
+        opacity: 0;
+        filter: alpha(opacity=0);
+        /* 5-6秒淡出*/
+    }
+}
+@keyframes rounds {
+    4% {
+        opacity: 1;
+        filter: alpha(opacity=100);
+        /* 0 - 1秒 淡入*/
+    }
+    20% {
+        opacity: 1;
+        filter: alpha(opacity=100);
+        /* 1- 5秒靜止*/
+    }
+    24% {
+        opacity: 0;
+        filter: alpha(opacity=0);
+        /* 5-6秒淡出*/
+    }
+}
+
+#run01{
     -webkit-animation-delay: 0s;
             animation-delay: 0s;
 }
 
-.slider_container div:nth-child(4) {
+#run02{
     -webkit-animation-delay: 5s;
             animation-delay: 5s;
 }
 
-.slider_container div:nth-child(3) {
+#run03{
     -webkit-animation-delay: 10s;
             animation-delay: 10s;
 }
 
-.slider_container div:nth-child(2) {
+#run04{
     -webkit-animation-delay: 15s;
             animation-delay: 15s;
 }
 
-.slider_container div:nth-child(1) {
+#run05{
     -webkit-animation-delay: 20s;
             animation-delay: 20s;
 }
@@ -361,13 +415,16 @@ main{
 		line-height:20px;
 		font-size:20px;
 	}
-	.slider_container {
+	.slider{
 	    width: 320px;
 	    height: 224px;	    
 	}
 	.slider_container img {
 	    width: 320px;
 	    height: 224px;	    
+	}
+	.slider_control{
+		top:10px;
 	}
 	article{
 		background-color: rgba(0,0,0,.67);
@@ -391,6 +448,9 @@ main{
 	.spinner-border{
 		width:20px;
 		height:28px;
+	}
+	.load{
+		
 	}
 }
 .arrow{
@@ -466,7 +526,7 @@ ul.drop-down-menu ul li:hover > ul { /* 第二層之後的選單展開位置*/
 }
 .load{
 	width:100%;
-	height:100%;
+	height:100vh;
 	position:fixed;
 	z-index:9999;
 	background-color:black;
@@ -583,34 +643,33 @@ ul.drop-down-menu ul li:hover > ul { /* 第二層之後的選單展開位置*/
 <main>
 	<div class="slider">
 		<div>
-			<div class="slider_control">1</div>
-			<div class="slider_control">2</div>
-			<div class="slider_control">3</div>
-			<div class="slider_control">4</div>
-			<div class="slider_control">5</div>
+			<div class="slider_control" id="control_1"><img class="control"src="spade.png" style="filter: invert(100%)"></div>
+			<div class="slider_control" id="control_2"><img class="control"src="heart.png"></div>
+			<div class="slider_control" id="control_3"><img class="control"src="club.png" style="filter: invert(100%);"></div>
+			<div class="slider_control" id="control_4"><img class="control"src="diamond.png"></div>
+			<div class="slider_control" id="control_5"><img class="control"src="nih.png" style="filter: invert(100%);"></div>
 		</div>
 		<aside class="slider_container">
-					
-				<div class="pic" id="run05">
-					<img src="new03.png" alt="" />
-					<span class="info">新品上市</span>
-				</div>
-				<div class="pic" id="run04">
-					<img src="new02.png" alt="" />
-					<span class="info">新品上市</span>
-				</div>
-				<div class="pic" id="run03">
-					<img src="new00.png" alt="" />
-					<span class="info">新品上市</span>
-				</div>
-				<div class="pic" id="run02">
-					<img src="new01.png" alt="" />
-					<span class="info">新品上市</span>
-				</div>
-				<div class="pic" id="run01">
-					<img src="spring.png" alt="" />
-					<span class="info">酷炫多樣操作</span>
-				</div>
+			<div class="pic" id="run05">
+				<img src="new03.png" alt="" />
+				<span class="info">新品上市</span>
+			</div>
+			<div class="pic"id="run04">
+				<img src="new02.png" alt="" />
+				<span class="info">新品上市</span>
+			</div>
+			<div class="pic" id="run03">
+				<img src="new00.png" alt="" />
+				<span class="info">新品上市</span>
+			</div>
+			<div class="pic" id="run02">
+				<img src="new01.png" alt="" />
+				<span class="info">新品上市</span>
+			</div>
+			<div class="pic" id="run01">
+				<img src="spring.png" alt="" />
+				<span class="info">酷炫多樣操作</span>
+			</div>
 		</aside>
 	</div>
 </main>
@@ -667,6 +726,94 @@ ul.drop-down-menu ul li:hover > ul { /* 第二層之後的選單展開位置*/
 $(function(){
 	$(".load").fadeOut(3000);
 	var w = $("#mwt_slider_content").width();
+	
+	$('#control_1').click(function(){
+		$('#run01').css('-webkit-animation-delay', "0s");
+		$('#run01').css('animation-delay',"0s");
+		
+		$('#run02').css('-webkit-animation-delay', "5s");
+		$('#run02').css('animation-delay',"5s");
+		
+		$('#run03').css('-webkit-animation-delay', "10s");
+		$('#run03').css('animation-delay',"10s");
+		
+		$('#run04').css('-webkit-animation-delay', "15s");
+		$('#run05').css('animation-delay',"15s");
+		
+		$('#run05').css('-webkit-animation-delay', "20s");
+		$('#run05').css('animation-delay',"20s");
+		toggle_animate();
+	});
+	$('#control_2').click(function(){
+		$('#run01').css('-webkit-animation-delay', "20s");
+		$('#run01').css('animation-delay',"20s");
+		
+		$('#run02').css('-webkit-animation-delay', "0s");
+		$('#run02').css('animation-delay',"0s");
+		
+		$('#run03').css('-webkit-animation-delay', "5s");
+		$('#run03').css('animation-delay',"5s");
+		
+		$('#run04').css('-webkit-animation-delay', "10s");
+		$('#run05').css('animation-delay',"10s");
+		
+		$('#run05').css('-webkit-animation-delay', "15s");
+		$('#run05').css('animation-delay',"15s");
+		toggle_animate();
+	});
+	$('#control_3').click(function(){
+		$('#run01').css('-webkit-animation-delay', "15s");
+		$('#run01').css('animation-delay',"15s");
+		
+		$('#run02').css('-webkit-animation-delay', "20s");
+		$('#run02').css('animation-delay',"20s");
+		
+		$('#run03').css('-webkit-animation-delay', "0s");
+		$('#run03').css('animation-delay',"0s");
+		
+		$('#run04').css('-webkit-animation-delay', "5s");
+		$('#run05').css('animation-delay',"5s");
+		
+		$('#run05').css('-webkit-animation-delay', "10s");
+		$('#run05').css('animation-delay',"10s");
+		toggle_animate();
+	});
+	$('#control_4').click(function(){
+		$('#run01').css('-webkit-animation-delay', "10s");
+		$('#run01').css('animation-delay',"10s");
+		
+		$('#run02').css('-webkit-animation-delay', "15s");
+		$('#run02').css('animation-delay',"15s");
+		
+		$('#run03').css('-webkit-animation-delay', "20s");
+		$('#run03').css('animation-delay',"20s");
+		
+		$('#run04').css('-webkit-animation-delay', "0s");
+		$('#run05').css('animation-delay',"0s");
+		
+		$('#run05').css('-webkit-animation-delay', "5s");
+		$('#run05').css('animation-delay',"5s");
+		toggle_animate();
+	});
+	$('#control_5').click(function(){
+		$('#run01').css('-webkit-animation-delay', "5s");
+		$('#run01').css('animation-delay',"5s");
+		
+		$('#run02').css('-webkit-animation-delay', "10s");
+		$('#run02').css('animation-delay',"10s");
+		
+		$('#run03').css('-webkit-animation-delay', "15s");
+		$('#run03').css('animation-delay',"15s");
+		
+		$('#run04').css('-webkit-animation-delay', "20s");
+		$('#run05').css('animation-delay',"20s");
+		
+		$('#run05').css('-webkit-animation-delay', "0s");
+		$('#run05').css('animation-delay',"0s");
+		toggle_animate();
+	});
+	
+	
 	$('#mwt_slider_content').css('height', ($(window).height() - 20) + 'px' );
 	$(".slider_container").click(function(){
 		/*alert($("#run01").css('opacity') + $("#run02").css('opacity') + $("#run03").css('opacity'));*/
@@ -704,6 +851,23 @@ $(function(){
 		});
 	}
 });
+
+function toggle_animate(){
+	$("#run05").toggleClass("pic");
+	$("#run05").toggleClass("run");
+	
+	$("#run04").toggleClass("pic");
+	$("#run04").toggleClass("run");
+	
+	$("#run03").toggleClass("pic");
+	$("#run03").toggleClass("run");
+	
+	$("#run02").toggleClass("pic");
+	$("#run02").toggleClass("run");
+	
+	$("#run01").toggleClass("pic");
+	$("#run01").toggleClass("run");
+}
 function Diffcard(cardname){
 	cardchange = document.getElementById(cardname);
 	c=cardname;
